@@ -179,6 +179,17 @@ OLD_AM_CPPFLAGS="$AM_CPPFLAGS"
 OLD_AM_CFLAGS="$AM_CFLAGS"
 OLD_LIBS="$LIBS"
 
+# Check for Portals4
+AC_ARG_WITH([portals4],
+	[AS_HELP_STRING([--with-portals4],
+            [Enable Portals4 profiling])],
+        [ENABLEPORTALS4=1],
+        [ENABLEPORTALS4=0])
+
+if test $ENABLEPORTALS4 = 1; then
+   AC_DEFINE([HAVE_PORTALS4],[],[Enable Portals4 profiling])
+fi
+
 # if optional parameter used, extend path flags for compliler and linker
 if test $LIBPAPIPATHSET = 1 ; then
     if test "x$with_papi" != xno ; then

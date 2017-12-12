@@ -5,7 +5,8 @@ selfie_la_SOURCES = selfie.c selfie_tools.c \
 	selfie_papi.c \
 	selfie_posixio.cpp \
 	selfie_mpi.cpp \
-	selfie_mpiio.cpp
+	selfie_mpiio.cpp \
+	selfie_portals4.c
 selfie_la_LDFLAGS = -module -avoid-version -shared
 ACLOCAL_AMFLAGS = -I m4
 AM_CPPFLAGS += -I$(top_srcdir)/include
@@ -39,3 +40,5 @@ selfie_mpiio.lo: selfie_mpiio_functions.h ${top_srcdir}/include/selfie_tools.h $
 
 selfie_mpiio_functions.h: $(srcdir)/parse_mpi.py ${top_srcdir}/etc/selfie_mpiio_functions.txt
 	$(PYTHON) $(srcdir)/parse_mpi.py -n mpiio -i ${top_srcdir}/etc/selfie_mpiio_functions.txt -o $@
+
+selfie_portals4.c: ${top_srcdir}/include/selfie_tools.h ${top_srcdir}/include/selfie_portals4.h
