@@ -31,4 +31,4 @@ addons:
  
 install: true
 
-script: ./autogen.sh && ./configure --with-mpi --with-papi --with-yaml && make && make install
+script: ./autogen.sh && ./configure --prefix=${HOME}/selfie --with-mpi --with-papi --with-yaml && make && make install
