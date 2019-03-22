@@ -1,0 +1,26 @@
+# Copyright (C) 2015-2019 CEA/DAM
+# Copyright (C) 2015-2019 Laurent Nguyen <laurent.nguyen@cea.fr>
+#
+# This file is part of selFIe.
+#
+# This software is governed by the CeCILL-C license under French law and
+# abiding by the rules of distribution of free software.  You can  use,
+# modify and/ or redistribute the software under the terms of the CeCILL-C
+# license as circulated by CEA, CNRS and INRIA at the following URL
+# "http://www.cecill.info".
+
+# \file      .travis.yml
+# \author    Laurent Nguyen <laurent.nguyen@cea.fr>
+# \version   1.0.2
+# \date      21 March 2019
+# \brief     Travis file for CI (see travis-ci.org)
+#
+# \details   No
+
+language: cpp
+
+compiler: gcc
+ 
+install: make libpapi-dev papi-tools libyaml-dev
+
+script: ./autogen.sh && ./configure --with-mpi --with-papi --with-yaml && make && make install
