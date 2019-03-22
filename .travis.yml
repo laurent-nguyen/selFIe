@@ -28,10 +28,6 @@ addons:
       - libpapi-dev
       - papi-tools
       - libyaml-dev
-      - gcc-5
-      - gcc-6
-      - gcc-7
-      - gcc-8
  
 install: true
 
